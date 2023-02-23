@@ -23,7 +23,6 @@ namespace Interface
             {
                 this.BackColor = Color.;
 
-            }
             else
             {
                 this.BackColor = Color.WhiteSmoke;
