@@ -16,5 +16,19 @@ namespace Interface
         {
             InitializeComponent();
         }
+
+        private void toggleButtonDarkTheme_CheckedChanged(object sender, EventArgs e)
+        {
+            if (toggleButtonDarkTheme.Checked)
+            {
+                this.BackColor = Color.;
+
+            }
+            else
+            {
+                this.BackColor = Color.WhiteSmoke;
+
+            }
+        }
     }
 }
