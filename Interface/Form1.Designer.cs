@@ -33,8 +33,6 @@
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.toggleButtonDarkTheme = new Interface.Controls.ToggleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -148,8 +146,6 @@
         #endregion
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Controls.ToggleButton toggleButtonDarkTheme;
     }
