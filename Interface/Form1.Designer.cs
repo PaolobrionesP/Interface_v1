@@ -463,74 +463,6 @@
             this.labelTele.Text = "TELEMETRIA";
             this.labelTele.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelTPort
-            // 
-            this.panelTPort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(115)))), ((int)(((byte)(155)))));
-            this.panelTPort.Controls.Add(this.label6);
-            this.panelTPort.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTPort.Location = new System.Drawing.Point(0, 0);
-            this.panelTPort.Name = "panelTPort";
-            this.panelTPort.Size = new System.Drawing.Size(422, 44);
-            this.panelTPort.TabIndex = 2;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Consolas", 22F);
-            this.label6.ForeColor = System.Drawing.SystemColors.Window;
-            this.label6.Location = new System.Drawing.Point(76, 1);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(279, 43);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "PUERTO SERIAL";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // save2
-            // 
-            this.save2.Location = new System.Drawing.Point(101, 146);
-            this.save2.Name = "save2";
-            this.save2.Size = new System.Drawing.Size(60, 31);
-            this.save2.TabIndex = 4;
-            this.save2.Text = "Save";
-            this.save2.UseVisualStyleBackColor = true;
-            // 
-            // save1
-            // 
-            this.save1.Location = new System.Drawing.Point(96, 146);
-            this.save1.Name = "save1";
-            this.save1.Size = new System.Drawing.Size(60, 31);
-            this.save1.TabIndex = 4;
-            this.save1.Text = "Save";
-            this.save1.UseVisualStyleBackColor = true;
-            this.save1.Click += new System.EventHandler(this.save1_Click);
-            // 
-            // save3
-            // 
-            this.save3.Location = new System.Drawing.Point(114, 146);
-            this.save3.Name = "save3";
-            this.save3.Size = new System.Drawing.Size(60, 31);
-            this.save3.TabIndex = 4;
-            this.save3.Text = "Save";
-            this.save3.UseVisualStyleBackColor = true;
-            // 
-            // save4
-            // 
-            this.save4.Location = new System.Drawing.Point(114, 146);
-            this.save4.Name = "save4";
-            this.save4.Size = new System.Drawing.Size(60, 31);
-            this.save4.TabIndex = 4;
-            this.save4.Text = "Save";
-            this.save4.UseVisualStyleBackColor = true;
-            // 
-            // save5
-            // 
-            this.save5.Location = new System.Drawing.Point(109, 146);
-            this.save5.Name = "save5";
-            this.save5.Size = new System.Drawing.Size(60, 31);
-            this.save5.TabIndex = 4;
-            this.save5.Text = "Save";
-            this.save5.UseVisualStyleBackColor = true;
-            // 
             // toggleButtonDarkTheme
             // 
             this.toggleButtonDarkTheme.Location = new System.Drawing.Point(28, 7);
@@ -544,42 +476,6 @@
             this.toggleButtonDarkTheme.TabIndex = 5;
             this.toggleButtonDarkTheme.UseVisualStyleBackColor = true;
             this.toggleButtonDarkTheme.CheckedChanged += new System.EventHandler(this.toggleButtonDarkTheme_CheckedChanged);
-            // 
-            // comboBoxPort
-            // 
-            this.comboBoxPort.FormattingEnabled = true;
-            this.comboBoxPort.Location = new System.Drawing.Point(214, 83);
-            this.comboBoxPort.Name = "comboBoxPort";
-            this.comboBoxPort.Size = new System.Drawing.Size(152, 24);
-            this.comboBoxPort.TabIndex = 3;
-            // 
-            // comboBoxBaud
-            // 
-            this.comboBoxBaud.FormattingEnabled = true;
-            this.comboBoxBaud.Location = new System.Drawing.Point(214, 188);
-            this.comboBoxBaud.Name = "comboBoxBaud";
-            this.comboBoxBaud.Size = new System.Drawing.Size(152, 24);
-            this.comboBoxBaud.TabIndex = 3;
-            // 
-            // labelPort
-            // 
-            this.labelPort.AutoSize = true;
-            this.labelPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelPort.Location = new System.Drawing.Point(81, 86);
-            this.labelPort.Name = "labelPort";
-            this.labelPort.Size = new System.Drawing.Size(112, 20);
-            this.labelPort.TabIndex = 4;
-            this.labelPort.Text = "Puerto COM :";
-            // 
-            // labelBaud
-            // 
-            this.labelBaud.AutoSize = true;
-            this.labelBaud.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelBaud.Location = new System.Drawing.Point(81, 191);
-            this.labelBaud.Name = "labelBaud";
-            this.labelBaud.Size = new System.Drawing.Size(98, 20);
-            this.labelBaud.TabIndex = 4;
-            this.labelBaud.Text = "Baud Rate :";
             // 
             // Form1
             // 
@@ -617,8 +513,6 @@
             this.panelTelemetria.ResumeLayout(false);
             this.panelTT.ResumeLayout(false);
             this.panelTT.PerformLayout();
-            this.panelTPort.ResumeLayout(false);
-            this.panelTPort.PerformLayout();
             this.ResumeLayout(false);
 
         }
