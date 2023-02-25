@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,14 @@ namespace Interface
                 i += 10;
             }
 
-            
+            // Obtener los nombres de los puertos conectados
+            string[] portList = SerialPort.GetPortNames();
+            comboBoxPort.Items.AddRange(portList);
+
+            string[] rates = { "9600", "38400", "57600", "115200" };
+            comboBoxBaud.DataSource = rates;
+
+
         }
 
         private void toggleButtonDarkTheme_CheckedChanged(object sender, EventArgs e)
@@ -65,6 +73,7 @@ namespace Interface
                 chart1.BackColor = Color.FromArgb(42, 46, 50);
                 chartLegend.BackColor = Color.FromArgb(42, 46, 50);
                 chartLegend.ForeColor = Color.White;
+                chartArea.BackColor = Color.FromArgb(34, 34, 34);
                 chartArea.AxisX.LineColor = Color.LightGray;
                 chartArea.AxisY.LineColor = Color.LightGray;
                 chartArea.AxisX.MajorTickMark.LineColor = Color.LightGray;
@@ -124,6 +133,7 @@ namespace Interface
                 chart1.BackColor = Color.FromArgb(208, 213, 220);
                 chartLegend.BackColor = Color.FromArgb(208, 213, 220);
                 chartLegend.ForeColor = SystemColors.WindowText;
+                chartArea.BackColor = Color.White;
                 chartArea.AxisX.LineColor = Color.Black;
                 chartArea.AxisY.LineColor = Color.Black;
                 chartArea.AxisX.LabelStyle.ForeColor = Color.Black;
@@ -198,12 +208,12 @@ namespace Interface
             if (checkBox3.Checked)
             {
                 checkBox3.Text = "Visible";
-                chart1.Series["Acelerometro"].Enabled = true;
+                chart1.Series["Giroscopio"].Enabled = true;
             }
             else
             {
                 checkBox3.Text = "Oculto";
-                chart1.Series["Acelerometro"].Enabled = false;
+                chart1.Series["Giroscopio"].Enabled = false;
             }
         }
 
@@ -212,12 +222,12 @@ namespace Interface
             if (checkBox4.Checked)
             {
                 checkBox4.Text = "Visible";
-                chart1.Series["Giroscopio"].Enabled = true;
+                chart1.Series["Acelerometro"].Enabled = true;
             }
             else
             {
                 checkBox4.Text = "Oculto";
-                chart1.Series["Giroscopio"].Enabled = false;
+                chart1.Series["Acelerometro"].Enabled = false;
             }
         }
 
@@ -249,10 +259,68 @@ namespace Interface
                 sb.AppendLine(point.XValue.ToString() + "," + point.YValues[0].ToString());
             }
 
-            // Guardar los datos de la serie en un archivo de texto
-            File.WriteAllText("datos_serie.txt", sb.ToString());
+            string path = @"C:\Users\Paolo\OneDrive\HMI C#\HMI_v2\Interface\data\datos_serie.txt";
 
-            MessageBox.Show("Los datos de la serie se han guardado correctamente en el archivo datos_serie.txt.");
+
+            // Guardar los datos de la serie en un archivo de texto
+            File.WriteAllText(path, sb.ToString());
+
+            MessageBox.Show("Los datos de la serie se han guardado correctamente en el archivo datos_Presion.txt.");
+        }
+
+
+        private void buttonConectar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!serialPort1.IsOpen)
+                {
+                    serialPort1.BaudRate = Convert.ToInt32(comboBoxBaud.Text);
+                    serialPort1.PortName = comboBoxPort.Text;
+                    serialPort1.Open();
+
+                    buttonConectar.Text = "Desconetar";
+                    buttonRefresh.Enabled = false;
+                    comboBoxBaud.Enabled = false;
+                    comboBoxPort.Enabled = false;
+                }
+                else
+                {
+                    buttonConectar.Text = "Conectar";
+                    buttonRefresh.Enabled = true;
+                    comboBoxBaud.Enabled = true;
+                    comboBoxPort.Enabled = true;
+
+                    serialPort1.Close();
+                }
+                
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            // Vuelve a verificar los puertos disponibles
+            string[] portList = SerialPort.GetPortNames();
+            comboBoxPort.Items.AddRange(portList);
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (serialPort1.IsOpen)
+                {
+                    serialPort1.Close();
+                }
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
     }
 }
